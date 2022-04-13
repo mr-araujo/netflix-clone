@@ -12,6 +12,11 @@
 		62ADB2AC28063A66008CF2E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62ADB2AB28063A66008CF2E5 /* ViewController.swift */; };
 		62ADB2B128063A68008CF2E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62ADB2B028063A68008CF2E5 /* Assets.xcassets */; };
 		62ADB2B428063A68008CF2E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 62ADB2B228063A68008CF2E5 /* LaunchScreen.storyboard */; };
+		62B223F0280703AD004BC1B9 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B223EF280703AD004BC1B9 /* TabBarController.swift */; };
+		62B223F328070460004BC1B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B223F228070460004BC1B9 /* HomeViewController.swift */; };
+		62B223F528070481004BC1B9 /* UpcomingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B223F428070481004BC1B9 /* UpcomingViewController.swift */; };
+		62B223F728070499004BC1B9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B223F628070499004BC1B9 /* SearchViewController.swift */; };
+		62B223F9280704DD004BC1B9 /* DownloadsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62B223F8280704DD004BC1B9 /* DownloadsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +27,11 @@
 		62ADB2B028063A68008CF2E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		62ADB2B328063A68008CF2E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		62ADB2B528063A68008CF2E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62B223EF280703AD004BC1B9 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		62B223F228070460004BC1B9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		62B223F428070481004BC1B9 /* UpcomingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingViewController.swift; sourceTree = "<group>"; };
+		62B223F628070499004BC1B9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		62B223F8280704DD004BC1B9 /* DownloadsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +64,27 @@
 		62ADB2A628063A66008CF2E5 /* Netflix-Clone */ = {
 			isa = PBXGroup;
 			children = (
+				62B223F1280703E4004BC1B9 /* Controllers */,
 				62ADB2A728063A66008CF2E5 /* AppDelegate.swift */,
 				62ADB2A928063A66008CF2E5 /* SceneDelegate.swift */,
 				62ADB2AB28063A66008CF2E5 /* ViewController.swift */,
 				62ADB2B028063A68008CF2E5 /* Assets.xcassets */,
 				62ADB2B228063A68008CF2E5 /* LaunchScreen.storyboard */,
 				62ADB2B528063A68008CF2E5 /* Info.plist */,
+				62B223EF280703AD004BC1B9 /* TabBarController.swift */,
 			);
 			path = "Netflix-Clone";
+			sourceTree = "<group>";
+		};
+		62B223F1280703E4004BC1B9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				62B223F228070460004BC1B9 /* HomeViewController.swift */,
+				62B223F428070481004BC1B9 /* UpcomingViewController.swift */,
+				62B223F628070499004BC1B9 /* SearchViewController.swift */,
+				62B223F8280704DD004BC1B9 /* DownloadsViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,7 +157,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62B223F528070481004BC1B9 /* UpcomingViewController.swift in Sources */,
+				62B223F728070499004BC1B9 /* SearchViewController.swift in Sources */,
+				62B223F9280704DD004BC1B9 /* DownloadsViewController.swift in Sources */,
+				62B223F328070460004BC1B9 /* HomeViewController.swift in Sources */,
 				62ADB2AC28063A66008CF2E5 /* ViewController.swift in Sources */,
+				62B223F0280703AD004BC1B9 /* TabBarController.swift in Sources */,
 				62ADB2A828063A66008CF2E5 /* AppDelegate.swift in Sources */,
 				62ADB2AA28063A66008CF2E5 /* SceneDelegate.swift in Sources */,
 			);
