@@ -9,9 +9,9 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    private let feedTable: UITableView = {
-        let table = UITableView()
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+    private let tableView: UITableView = {
+        let table = UITableView(frame: .zero, style: .grouped)
+        table.register(FeedTableViewCell.self, forCellReuseIdentifier: FeedTableViewCell.identifier)
         return table
     }()
 
@@ -19,26 +19,36 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemBackground
-        view.addSubview(feedTable)
+        view.addSubview(tableView)
         
-        feedTable.delegate = self
-        feedTable.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        feedTable.frame = view.bounds
+        tableView.frame = view.bounds
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return 20
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = feedTable.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Hello World"
+        guard let cell = tableView.dequeueReusableCell(
+            withIdentifier: FeedTableViewCell.identifier,
+            for: indexPath
+        ) as? FeedTableViewCell else { return UITableViewCell() }
+        
         return cell
     }
     
