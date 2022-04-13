@@ -68,10 +68,10 @@
 				62ADB2A728063A66008CF2E5 /* AppDelegate.swift */,
 				62ADB2A928063A66008CF2E5 /* SceneDelegate.swift */,
 				62ADB2AB28063A66008CF2E5 /* ViewController.swift */,
+				62B223EF280703AD004BC1B9 /* TabBarController.swift */,
 				62ADB2B028063A68008CF2E5 /* Assets.xcassets */,
 				62ADB2B228063A68008CF2E5 /* LaunchScreen.storyboard */,
 				62ADB2B528063A68008CF2E5 /* Info.plist */,
-				62B223EF280703AD004BC1B9 /* TabBarController.swift */,
 			);
 			path = "Netflix-Clone";
 			sourceTree = "<group>";

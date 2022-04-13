@@ -27,6 +27,8 @@ class TabBarController: UITabBarController {
         searchNavController.title = "Top Search"
         downloadsNavController.title = "Downloads"
         
+        tabBar.tintColor = .label
+        
         setViewControllers([
             homeNavController,
             upcomingNavController,
