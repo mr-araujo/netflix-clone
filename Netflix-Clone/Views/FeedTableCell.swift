@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedTableViewCell: UITableViewCell {
+class FeedTableCell: UITableViewCell {
 
     static let identifier = "FeedTableViewCell"
     
@@ -18,6 +18,7 @@ class FeedTableViewCell: UITableViewCell {
         
         let colletion = UICollectionView(frame: .zero, collectionViewLayout: layout)
         colletion.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        
         return colletion
     }()
     
@@ -42,7 +43,7 @@ class FeedTableViewCell: UITableViewCell {
     }
 }
 
-extension FeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FeedTableCell: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
@@ -58,15 +59,14 @@ extension FeedTableViewCell: UICollectionViewDelegate, UICollectionViewDataSourc
 #if canImport(SwiftUI) && DEBUG
 import SwiftUI
 
-struct FeedTableViewCellPreview: PreviewProvider {
+struct FeedTableCellPreview: PreviewProvider {
     static var previews: some View {
         UIViewPreview {
-            let feedTableViewCell = FeedTableViewCell()
+            let feedTableViewCell = FeedTableCell()
        
             return feedTableViewCell
         }
-        .previewLayout(.fixed(width: UIScreen.main.bounds.width,
-                              height: 200))
+        .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 200))
     }
 }
 #endif

@@ -11,7 +11,7 @@ class HomeViewController: UIViewController {
     
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
-        table.register(FeedTableViewCell.self, forCellReuseIdentifier: FeedTableViewCell.identifier)
+        table.register(FeedTableCell.self, forCellReuseIdentifier: FeedTableCell.identifier)
         return table
     }()
 
@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
+        tableView.tableHeaderView = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
     }
     
     override func viewWillLayoutSubviews() {
@@ -45,9 +45,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: FeedTableViewCell.identifier,
+            withIdentifier: FeedTableCell.identifier,
             for: indexPath
-        ) as? FeedTableViewCell else { return UITableViewCell() }
+        ) as? FeedTableCell else { return UITableViewCell() }
         
         return cell
     }
