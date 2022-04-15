@@ -21,6 +21,7 @@ class HeroHeaderView: UIView {
         super.init(frame: frame)
         
         addSubview(imageView)
+        addGradient()
     }
     
     required init?(coder: NSCoder) {
@@ -32,4 +33,29 @@ class HeroHeaderView: UIView {
         
         imageView.frame = bounds
     }
+    
+    private func addGradient() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+            UIColor.clear.cgColor,
+            UIColor.systemBackground.cgColor
+        ]
+        gradientLayer.frame = bounds
+        layer.addSublayer(gradientLayer)
+    }
 }
+
+#if canImport(SwiftUI) && DEBUG
+import SwiftUI
+
+struct HeroHeaderViewPreview: PreviewProvider {
+    static var previews: some View {
+        UIViewPreview {
+            let heroHeaderView = HeroHeaderView()
+       
+            return heroHeaderView
+        }
+        .previewLayout(.fixed(width: UIScreen.main.bounds.width, height: 450))
+    }
+}
+#endif
