@@ -1,5 +1,5 @@
 //
-//  Movies.swift
+//  Medias.swift
 //  Netflix-Clone
 //
 //  Created by Murillo R. Araújo on 18/04/22.
@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Movies: Decodable {
-    let results: [Movie]
+struct Trending: Decodable {
+    let results: [Media]
 }
 
-struct Movie: Decodable {
+struct Media: Decodable {
     let id: Int
     let mediaType: String?
     let originalName: String?

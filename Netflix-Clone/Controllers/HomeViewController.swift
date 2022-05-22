@@ -11,8 +11,8 @@ class HomeViewController: UIViewController {
     
     private let sectionTitles = [
         "Trending Movies",
-        "Popular",
         "Trending TV",
+        "Popular",
         "Upcoming Movies",
         "Top Rated"
     ]
@@ -57,10 +57,10 @@ class HomeViewController: UIViewController {
     }
     
     private func getMovies() {
-        APICaller.shared.fetchData { result in
+        APICaller.shared.fetchData(url: "movie/popular") { result in
             switch result {
                 case .success(let movies):
-                print(movies[0].id)
+                    print(movies[0].id)
                     
                 case .failure(let error):
                     print(error)
@@ -84,7 +84,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         header.textLabel?.textColor = .white
         header.textLabel?.font = .systemFont(ofSize: 18, weight: .semibold)
-        header.textLabel?.text = header.textLabel?.text?.lowercased()
+        header.textLabel?.text = header.textLabel?.text?.capitalizeFirstLetter()
         header.textLabel?.frame = CGRect(
             x: header.bounds.origin.x + 20,
             y: header.bounds.origin.y,

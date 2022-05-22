@@ -18,7 +18,7 @@ class APICaller {
     
     static let shared = APICaller()
     
-    func fetchData(completion: @escaping (Result<[Movie], APIError>) -> Void) {
+    func fetchData(url: String, completion: @escaping (Result<[Media], APIError>) -> Void) {
         
         let baseURL = "https://api.themoviedb.org"
         
@@ -26,7 +26,7 @@ class APICaller {
             return completion(.failure(.invalidKey))
         }
         
-        guard let url = URL(string: "\(baseURL)/3/trending/all/day?api_key=\(apiKey)") else {
+        guard let url = URL(string: "\(baseURL)/3/\(url)?api_key=\(apiKey)") else {
             return completion(.failure(.invalidURL))
         }
         
@@ -38,8 +38,8 @@ class APICaller {
             do {
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let movies = try decoder.decode(Movies.self, from: data)
-                completion(.success(movies.results))
+                let trending = try decoder.decode(Trending.self, from: data)
+                completion(.success(trending.results))
             } catch {
                 completion(.failure(.noData))
             }
