@@ -7,6 +7,14 @@
 
 import UIKit
 
+enum Sections: Int {
+    case TrendingMovies = 0
+    case TrendingTV = 1
+    case Popular = 2
+    case Upcoming = 3
+    case TopRated = 4
+}
+
 class HomeViewController: UIViewController {
     
     private let sectionTitles = [
@@ -16,7 +24,7 @@ class HomeViewController: UIViewController {
         "Upcoming Movies",
         "Top Rated"
     ]
-    
+
     private let tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.register(FeedTableCell.self, forCellReuseIdentifier: FeedTableCell.identifier)
@@ -34,8 +42,6 @@ class HomeViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableHeaderView = HeroHeaderView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 450))
-        
-        getMovies()
     }
     
     override func viewWillLayoutSubviews() {
@@ -55,13 +61,13 @@ class HomeViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = .white
     }
-    
-    private func getMovies() {
-        APICaller.shared.fetchData(url: "movie/popular") { result in
+
+    private func getMedias(with url: String, completion: @escaping ([Media]) -> Void) {
+        APICaller.shared.fetchData(url: url) { result in
             switch result {
-                case .success(let movies):
-                    print(movies[0].id)
-                    
+                case .success(let medias):
+                    completion(medias)
+
                 case .failure(let error):
                     print(error)
             }
@@ -98,11 +104,35 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(
-            withIdentifier: FeedTableCell.identifier,
-            for: indexPath
-        ) as? FeedTableCell else { return UITableViewCell() }
-        
+        guard let cell = tableView.dequeueReusableCell( withIdentifier: FeedTableCell.identifier, for: indexPath) as? FeedTableCell else {
+            return UITableViewCell()
+        }
+
+        switch indexPath.section {
+            case Sections.TrendingMovies.rawValue:
+                getMedias(with: "trending/movies/day") { medias in
+                    cell.configure(with: medias)
+                }
+            case Sections.TrendingTV.rawValue:
+                getMedias(with: "trending/tv/day") { medias in
+                    cell.configure(with: medias)
+                }
+            case Sections.Popular.rawValue:
+                getMedias(with: "movie/popular") { medias in
+                    cell.configure(with: medias)
+                }
+            case Sections.Upcoming.rawValue:
+                getMedias(with: "movie/upcoming") { medias in
+                    cell.configure(with: medias)
+                }
+            case Sections.TopRated.rawValue:
+                getMedias(with: "movie/top_rated") { medias in
+                    cell.configure(with: medias)
+                }
+            default:
+                return UITableViewCell()
+        }
+
         return cell
     }
     

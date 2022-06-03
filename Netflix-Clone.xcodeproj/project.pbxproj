@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		621CF081283AD332009D0A96 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 621CF080283AD332009D0A96 /* SDWebImage */; };
 		621CF083283AD332009D0A96 /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 621CF082283AD332009D0A96 /* SDWebImageMapKit */; };
+		621CF085283ADCAA009D0A96 /* MediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 621CF084283ADCAA009D0A96 /* MediaCollectionViewCell.swift */; };
 		62282959280E190E0025FDC2 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62282958280E190E0025FDC2 /* APICaller.swift */; };
 		6228295B280E1D1F0025FDC2 /* Medias.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6228295A280E1D1F0025FDC2 /* Medias.swift */; };
 		6241891F280893C4002A5440 /* HeroHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6241891E280893C4002A5440 /* HeroHeaderView.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		621CF084283ADCAA009D0A96 /* MediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		62282958280E190E0025FDC2 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
 		6228295A280E1D1F0025FDC2 /* Medias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Medias.swift; sourceTree = "<group>"; };
 		6241891E280893C4002A5440 /* HeroHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroHeaderView.swift; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 			children = (
 				62F0F4D6280776FB00C1F9B5 /* FeedTableCell.swift */,
 				6241891E280893C4002A5440 /* HeroHeaderView.swift */,
+				621CF084283ADCAA009D0A96 /* MediaCollectionViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				62FC0662281456B90097AACE /* String+Extension.swift in Sources */,
 				6241891F280893C4002A5440 /* HeroHeaderView.swift in Sources */,
 				62B223F0280703AD004BC1B9 /* TabBarController.swift in Sources */,
+				621CF085283ADCAA009D0A96 /* MediaCollectionViewCell.swift in Sources */,
 				62ADB2A828063A66008CF2E5 /* AppDelegate.swift in Sources */,
 				62282959280E190E0025FDC2 /* APICaller.swift in Sources */,
 				62F0F4D7280776FB00C1F9B5 /* FeedTableCell.swift in Sources */,
